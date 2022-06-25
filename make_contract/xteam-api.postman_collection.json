@@ -1,0 +1,41 @@
+{
+	"info": {
+		"_postman_id": "3d3b3d6e-4225-4bc7-aa29-4bb30f266811",
+		"name": "xteam-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://127.0.0.1:3333/make_contract",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"contract\": {\n        \"name\": \"Counter\",\n        \"attributes\": [\n            {\n                    \"name\": \"value\",\n                    \"type\": \"u8\"\n            },\n            {\n                    \"name\": \"new_value\",\n                    \"type\": \"u8\"\n            },\n            {\n                    \"name\": \"accounts\",\n                    \"type\": \"LookupMap<AccountId, VersionedAccount>\"\n            }\n        ]\n    },\n    \"entities\":  [\n        {\n            \"type\": \"storage\",\n            \"name\": \"OldCounter\",\n            \"attributes\": [\n                {\n                    \"name\": \"value\",\n                    \"type\": \"u8\"\n                },\n                {\n                    \"name\": \"new_value\",\n                    \"type\": \"u8\"\n                }\n            ]\n        },\n         {\n            \"type\": \"storage\",\n            \"name\": \"AccountV1\",\n            \"attributes\": [\n                {\n                    \"name\": \"vote\",\n                    \"type\": \"u8\"\n                },\n                {\n                    \"name\": \"balance\",\n                    \"type\": \"u8\"\n                },\n                {\n                    \"name\": \"bio\",\n                    \"type\": \"String\"\n                }\n            ]\n        },\n         {\n            \"type\": \"enum\",\n            \"name\": \"VersionedAccount\",\n            \"attributes\": [\n                {\n                    \"name\": \"V1\",\n                    \"type\": \"AccountV1\"\n                },\n                {\n                    \"name\": \"V2\",\n                    \"type\": \"AccountV2\"\n                },\n                {\n                    \"name\": \"Current\",\n                    \"type\": \"Account\"\n                }\n            ]\n        }\n    ],\n    \"functions\": [\n        \"init\",\n        \"get_num\"\n    ],\n    \"impl_entities\": [\n        \"impl_from_for_account\",\n        \"impl_from_for_version_account\"\n    ]\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3333/make_contract",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3333",
+					"path": [
+						"make_contract"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
